@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255, 184, 76, 0.2), transparent 28%),
+      radial-gradient(circle at right center, rgba(77, 137, 255, 0.24), transparent 26%),
+      linear-gradient(135deg, #07111f 0%, #0d1629 46%, #131d33 100%);
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --shell-bg: rgba(10, 16, 31, 0.72);
+    --shell-border: rgba(255, 255, 255, 0.1);
+    --shell-shadow: 0 28px 120px rgba(0, 0, 0, 0.45);
+    --showcase-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+      radial-gradient(circle at top right, rgba(255, 184, 76, 0.22), transparent 30%);
+    --showcase-text: #f5f7fb;
+    --showcase-eyebrow: rgba(236, 241, 255, 0.62);
+    --showcase-copy: rgba(236, 241, 255, 0.74);
+    --showcase-card-bg: rgba(255, 255, 255, 0.05);
+    --showcase-card-border: rgba(255, 255, 255, 0.1);
+    --panel-bg: rgba(255, 255, 255, 0.03);
+    --card-bg: #f7f8fc;
+    --card-border: rgba(255, 255, 255, 0.5);
+    --card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    --card-text: #162033;
+    --card-muted: #667089;
+    --toggle-bg: rgba(18, 28, 48, 0.06);
+    --toggle-border: rgba(18, 28, 48, 0.08);
+    --toggle-shadow: 0 12px 24px rgba(18, 28, 48, 0.08);
+    --toggle-text: #667089;
+    --toggle-active-bg: #ffffff;
+    --toggle-active-text: #162033;
+    --input-bg: #ffffff;
+    --input-border: #d8e0ec;
+    --input-placeholder: #97a2b8;
+    --input-focus: #487bff;
+    --input-focus-ring: 0 0 0 4px rgba(72, 123, 255, 0.12);
+    --primary-bg: linear-gradient(135deg, #192945, #3459c7);
+    --primary-text: #f8fbff;
+    --primary-shadow: 0 18px 34px rgba(27, 47, 104, 0.28);
+    --link-color: #274ec6;
+    --hint-bg: rgba(39, 78, 198, 0.06);
+    --hint-border: rgba(39, 78, 198, 0.12);
+    --danger-bg: rgba(209, 54, 54, 0.08);
+    --danger-border: rgba(209, 54, 54, 0.18);
+    --danger-text: #a92a2a;
+    --accent-soft: rgba(255, 202, 114, 0.14);
+    --accent-text: #ffd58f;
+    --footer-text: rgba(236, 241, 255, 0.55);
+    --shuffle-color-from: rgba(255, 202, 114, 0.82);
+    --shuffle-color-to: #f5f7fb;
+  }
+
+  :root[data-theme="light"] {
+    background:
+      radial-gradient(circle at top left, rgba(255, 193, 107, 0.2), transparent 26%),
+      radial-gradient(circle at right center, rgba(80, 145, 255, 0.18), transparent 24%),
+      linear-gradient(135deg, #eef3ff 0%, #f8fafc 44%, #eef2f7 100%);
+    --shell-bg: rgba(255, 255, 255, 0.72);
+    --shell-border: rgba(154, 170, 200, 0.24);
+    --shell-shadow: 0 28px 80px rgba(72, 92, 138, 0.18);
+    --showcase-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent),
+      radial-gradient(circle at top right, rgba(255, 184, 76, 0.24), transparent 34%);
+    --showcase-text: #152035;
+    --showcase-eyebrow: rgba(21, 32, 53, 0.56);
+    --showcase-copy: rgba(21, 32, 53, 0.74);
+    --showcase-card-bg: rgba(255, 255, 255, 0.52);
+    --showcase-card-border: rgba(128, 148, 184, 0.18);
+    --panel-bg: rgba(255, 255, 255, 0.22);
+    --card-bg: rgba(255, 255, 255, 0.78);
+    --card-border: rgba(154, 170, 200, 0.2);
+    --card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    --card-text: #162033;
+    --card-muted: #5f6980;
+    --toggle-bg: rgba(23, 35, 58, 0.06);
+    --toggle-border: rgba(23, 35, 58, 0.08);
+    --toggle-shadow: 0 12px 24px rgba(72, 92, 138, 0.12);
+    --toggle-text: #6d7690;
+    --toggle-active-bg: #ffffff;
+    --toggle-active-text: #162033;
+    --input-bg: #ffffff;
+    --input-border: #d8e0ec;
+    --input-placeholder: #97a2b8;
+    --input-focus: #487bff;
+    --input-focus-ring: 0 0 0 4px rgba(72, 123, 255, 0.12);
+    --primary-bg: linear-gradient(135deg, #1f3153, #3e65db);
+    --primary-text: #f8fbff;
+    --primary-shadow: 0 18px 34px rgba(52, 89, 199, 0.22);
+    --link-color: #274ec6;
+    --hint-bg: rgba(39, 78, 198, 0.06);
+    --hint-border: rgba(39, 78, 198, 0.12);
+    --danger-bg: rgba(209, 54, 54, 0.08);
+    --danger-border: rgba(209, 54, 54, 0.18);
+    --danger-text: #a92a2a;
+    --accent-soft: rgba(255, 202, 114, 0.18);
+    --accent-text: #ad6d12;
+    --footer-text: rgba(21, 32, 53, 0.55);
+    --shuffle-color-from: rgba(173, 109, 18, 0.76);
+    --shuffle-color-to: #152035;
+  }
+
+  :root[data-theme="dark"] {
+    background:
+      radial-gradient(circle at top left, rgba(255, 184, 76, 0.2), transparent 28%),
+      radial-gradient(circle at right center, rgba(77, 137, 255, 0.24), transparent 26%),
+      linear-gradient(135deg, #07111f 0%, #0d1629 46%, #131d33 100%);
+    --shell-bg: rgba(10, 16, 31, 0.72);
+    --shell-border: rgba(255, 255, 255, 0.1);
+    --shell-shadow: 0 28px 120px rgba(0, 0, 0, 0.45);
+    --showcase-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+      radial-gradient(circle at top right, rgba(255, 184, 76, 0.22), transparent 30%);
+    --showcase-text: #f5f7fb;
+    --showcase-eyebrow: rgba(236, 241, 255, 0.62);
+    --showcase-copy: rgba(236, 241, 255, 0.74);
+    --showcase-card-bg: rgba(255, 255, 255, 0.05);
+    --showcase-card-border: rgba(255, 255, 255, 0.1);
+    --panel-bg: rgba(255, 255, 255, 0.03);
+    --card-bg: rgba(14, 22, 38, 0.92);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 22px 60px rgba(0, 0, 0, 0.32);
+    --card-text: #f5f7fb;
+    --card-muted: #93a1bf;
+    --toggle-bg: rgba(255, 255, 255, 0.04);
+    --toggle-border: rgba(255, 255, 255, 0.08);
+    --toggle-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    --toggle-text: #93a1bf;
+    --toggle-active-bg: rgba(255, 255, 255, 0.1);
+    --toggle-active-text: #f5f7fb;
+    --input-bg: rgba(255, 255, 255, 0.03);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-placeholder: #7483a3;
+    --input-focus: #5d87ff;
+    --input-focus-ring: 0 0 0 4px rgba(93, 135, 255, 0.16);
+    --primary-bg: linear-gradient(135deg, #2d4fcb, #5d87ff);
+    --primary-text: #f8fbff;
+    --primary-shadow: 0 18px 34px rgba(52, 89, 199, 0.3);
+    --link-color: #7ba2ff;
+    --hint-bg: rgba(123, 162, 255, 0.08);
+    --hint-border: rgba(123, 162, 255, 0.16);
+    --danger-bg: rgba(255, 95, 95, 0.1);
+    --danger-border: rgba(255, 95, 95, 0.18);
+    --danger-text: #ff9f9f;
+    --accent-soft: rgba(255, 202, 114, 0.14);
+    --accent-text: #ffd58f;
+    --footer-text: rgba(236, 241, 255, 0.55);
+    --shuffle-color-from: rgba(255, 202, 114, 0.82);
+    --shuffle-color-to: #f5f7fb;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: transparent;
+    color: var(--showcase-text);
+  }
+
+  a,
+  button,
+  input {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .shuffle-text--hidden {
+    visibility: hidden;
+  }
+
+  .shuffle-text--ready {
+    visibility: visible;
+  }
+}
