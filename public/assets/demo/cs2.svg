@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13233f" />
+      <stop offset="55%" stop-color="#0d1629" />
+      <stop offset="100%" stop-color="#111c31" />
+    </linearGradient>
+    <radialGradient id="glow" cx="75%" cy="20%" r="72%">
+      <stop offset="0%" stop-color="#7ee9d0" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#7ee9d0" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="56" fill="url(#bg)" />
+  <rect width="1200" height="1200" rx="56" fill="url(#glow)" />
+  <rect x="56" y="56" width="1088" height="1088" rx="40" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" />
+  <text x="90" y="136" fill="#8cefd8" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" letter-spacing="8">LENS</text>
+  <text x="90" y="262" fill="#ffffff" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="104" font-weight="700">折射</text>
+  <text x="90" y="350" fill="rgba(224,234,255,0.82)" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="34">镜面会跟随鼠标轻微漂移</text>
+  <circle cx="818" cy="318" r="144" fill="rgba(255,255,255,0.08)" />
+  <circle cx="888" cy="856" r="178" fill="rgba(255,255,255,0.06)" />
+</svg>
