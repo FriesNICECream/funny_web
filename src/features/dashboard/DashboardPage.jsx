@@ -4,6 +4,8 @@ import Button from "../../components/ui/Button";
 import ThemeToggle from "../../components/ThemeToggle";
 
 function DashboardPage({ session, themeMode, resolvedTheme, setThemeMode, onLogout }) {
+  const user = session?.user;
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#070311] text-white">
       <div className="absolute inset-0">
@@ -31,7 +33,19 @@ function DashboardPage({ session, themeMode, resolvedTheme, setThemeMode, onLogo
             <span>Funny Web</span>
           </div>
 
-          <nav className="hidden items-center gap-8 text-sm font-semibold text-white/86 md:flex">
+          <div className="hidden items-center gap-4 md:flex">
+            <ThemeToggle themeMode={themeMode} resolvedTheme={resolvedTheme} onChange={setThemeMode} />
+            <nav className="flex items-center gap-8 text-sm font-semibold text-white/86">
+              <a href="/" className="opacity-100 transition-opacity hover:opacity-100">
+                主页
+              </a>
+              <button type="button" onClick={onLogout} className="cursor-pointer opacity-86 transition-opacity hover:opacity-100">
+                登出
+              </button>
+            </nav>
+          </div>
+
+          <nav className="flex items-center gap-3 text-sm font-semibold text-white/86 md:hidden">
             <a href="/" className="transition-opacity hover:opacity-100 opacity-100">
               主页
             </a>
@@ -43,7 +57,7 @@ function DashboardPage({ session, themeMode, resolvedTheme, setThemeMode, onLogo
 
         <section className="flex flex-1 flex-col items-center justify-center text-center">
           <div className="inline-flex items-center rounded-full border border-white/12 bg-white/8 px-5 py-2 text-sm font-semibold text-white/88 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
-            Mock Session · {session?.email}
+            已登录用户 · {user?.email}
           </div>
 
           <h1 className="mt-8 max-w-4xl text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.92] tracking-[-0.07em] text-white">
@@ -53,9 +67,11 @@ function DashboardPage({ session, themeMode, resolvedTheme, setThemeMode, onLogo
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
-            当前登录账号为
-            {" "}
-            {session?.email}。
+            当前登录账号为 {user?.full_name || "未命名用户"}，邮箱 {user?.email}。
+          </p>
+
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/52 md:text-base">
+            用户 ID：{user?.id}
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">

@@ -1,11 +1,11 @@
 import AuthPage from "./features/auth/AuthPage";
 import DashboardPage from "./features/dashboard/DashboardPage";
+import useAuthSession from "./hooks/useAuthSession";
 import useTheme from "./hooks/useTheme";
-import useMockSession from "./hooks/useMockSession";
 
 function App() {
   const { themeMode, resolvedTheme, setThemeMode } = useTheme();
-  const { session, isAuthenticated, login, logout } = useMockSession();
+  const { session, isAuthenticated, isSubmitting, login, logout } = useAuthSession();
   const year = new Date().getFullYear();
 
   if (isAuthenticated) {
@@ -20,7 +20,16 @@ function App() {
     );
   }
 
-  return <AuthPage themeMode={themeMode} resolvedTheme={resolvedTheme} setThemeMode={setThemeMode} onLoginSuccess={login} year={year} />;
+  return (
+    <AuthPage
+      themeMode={themeMode}
+      resolvedTheme={resolvedTheme}
+      setThemeMode={setThemeMode}
+      onLoginSuccess={login}
+      isSubmitting={isSubmitting}
+      year={year}
+    />
+  );
 }
 
 export default App;

@@ -1,29 +1,38 @@
 import { useState } from "react";
 import Button from "../../../components/ui/Button";
 import TextField from "../../../components/ui/TextField";
-import {
-  authenticateMockUser,
-  MOCK_USER,
-} from "../mockAuth";
 
-function LoginForm({ onLoginSuccess }) {
+function LoginForm({ onLoginSuccess, isSubmitting, noticeMessage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
+    const normalizedEmail = email.trim();
 
-    // 这里使用固定 mock 账号，便于前端阶段联调与演示。
-    if (!authenticateMockUser(email.trim(), password)) {
-      setError("账号或密码错误，请使用 admin@gmail.com / admin 登录。");
+    if (!normalizedEmail || !password) {
+      setError("请输入邮箱和密码。");
       return;
     }
 
-    onLoginSuccess({ remember });
-    setPassword("");
+    if (password.length < 8 || password.length > 128) {
+      setError("密码长度需要在 8 到 128 位之间。");
+      return;
+    }
+
+    try {
+      await onLoginSuccess({
+        email: normalizedEmail,
+        password,
+        remember,
+      });
+      setPassword("");
+    } catch (loginError) {
+      setError(loginError instanceof Error ? loginError.message : "登录失败，请稍后重试");
+    }
   };
 
   return (
@@ -31,7 +40,8 @@ function LoginForm({ onLoginSuccess }) {
       <TextField
         label="邮箱地址"
         type="email"
-        placeholder="admin@gmail.com"
+        placeholder="name@example.com"
+        autoComplete="email"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
@@ -39,7 +49,8 @@ function LoginForm({ onLoginSuccess }) {
       <TextField
         label="密码"
         type="password"
-        placeholder="请输入 admin"
+        placeholder="请输入登录密码"
+        autoComplete="current-password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
@@ -63,18 +74,26 @@ function LoginForm({ onLoginSuccess }) {
         <p className="m-0 rounded-2xl border border-[var(--danger-border)] bg-[var(--danger-bg)] px-4 py-3 text-sm text-[var(--danger-text)]">
           {error}
         </p>
+      ) : noticeMessage ? (
+        <p className="m-0 rounded-2xl border border-emerald-500/20 bg-emerald-500/8 px-4 py-3 text-sm text-emerald-600 dark:text-emerald-300">
+          {noticeMessage}
+        </p>
       ) : (
         <p className="m-0 rounded-2xl border border-[var(--hint-border)] bg-[var(--hint-bg)] px-4 py-3 text-sm text-[var(--card-muted)]">
-          Mock 账号：admin@gmail.com / admin
+          可用账号示例：<br />
+          <strong>邮箱：testUser@gmail.com</strong><br />
+          <strong>密码：testUser</strong>
+
         </p>
       )}
 
       <Button
         type="submit"
+        disabled={isSubmitting}
         style={{ backgroundImage: "var(--primary-bg)" }}
         className="mt-1.5 w-full text-[var(--primary-text)] shadow-[var(--primary-shadow)]"
       >
-        进入控制台
+        {isSubmitting ? "登录中..." : "进入控制台"}
       </Button>
     </form>
   );
