@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10192c" />
+      <stop offset="55%" stop-color="#18274a" />
+      <stop offset="100%" stop-color="#0d1424" />
+    </linearGradient>
+    <radialGradient id="glow" cx="20%" cy="18%" r="80%">
+      <stop offset="0%" stop-color="#6ea8ff" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#6ea8ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1600" rx="56" fill="url(#bg)" />
+  <rect width="1200" height="1600" rx="56" fill="url(#glow)" />
+  <rect x="48" y="48" width="1104" height="1504" rx="42" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" />
+  <text x="92" y="126" fill="#f3c56b" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" letter-spacing="8">FLUID GLASS</text>
+  <text x="92" y="254" fill="#ffffff" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="108" font-weight="700">初始界面</text>
+  <text x="92" y="342" fill="rgba(224,234,255,0.82)" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="34">登录后直接进入全幅展示区</text>
+  <circle cx="860" cy="320" r="156" fill="rgba(255,255,255,0.08)" />
+  <rect x="92" y="1180" width="280" height="136" rx="32" fill="rgba(255,255,255,0.08)" />
+  <rect x="404" y="1180" width="320" height="136" rx="32" fill="rgba(255,255,255,0.05)" />
+</svg>

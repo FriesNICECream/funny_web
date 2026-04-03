@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1600" viewBox="0 0 800 1600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131f38" />
+      <stop offset="55%" stop-color="#162748" />
+      <stop offset="100%" stop-color="#0b1220" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="15%" r="70%">
+      <stop offset="0%" stop-color="#f3c56b" stop-opacity="0.92" />
+      <stop offset="100%" stop-color="#f3c56b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1600" rx="48" fill="url(#bg)" />
+  <rect width="800" height="1600" rx="48" fill="url(#glow)" />
+  <rect x="44" y="44" width="712" height="1512" rx="34" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" />
+  <text x="78" y="128" fill="#ffd389" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" letter-spacing="8">SIDEBAR</text>
+  <text x="78" y="250" fill="#ffffff" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="86" font-weight="700">聚焦</text>
+  <text x="78" y="334" fill="rgba(224,234,255,0.82)" font-family="Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="30">左侧只保留一个导航项</text>
+</svg>
