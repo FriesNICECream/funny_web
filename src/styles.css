@@ -152,6 +152,40 @@
     --shuffle-color-to: #f5f7fb;
   }
 
+  :root {
+    --media-panel-bg: rgba(9, 15, 27, 0.7);
+    --media-panel-border: rgba(255, 255, 255, 0.08);
+    --media-card-bg: rgba(11, 18, 32, 0.92);
+    --media-title: #f5f7fb;
+    --media-body: #9aa9c6;
+    --media-muted: #6f7f9d;
+    --media-accent: #8cd3ff;
+    --media-accent-soft: rgba(110, 188, 255, 0.12);
+    --media-accent-border: rgba(110, 188, 255, 0.28);
+    --media-hero-bg:
+      radial-gradient(circle at top left, rgba(110, 188, 255, 0.18), transparent 24%),
+      radial-gradient(circle at 80% 20%, rgba(255, 187, 92, 0.18), transparent 28%),
+      linear-gradient(135deg, rgba(10, 18, 30, 0.96), rgba(12, 20, 36, 0.82));
+    --media-summary-bg: rgba(255, 255, 255, 0.04);
+  }
+
+  :root[data-theme="light"] {
+    --media-panel-bg: rgba(255, 255, 255, 0.72);
+    --media-panel-border: rgba(106, 128, 170, 0.14);
+    --media-card-bg: rgba(255, 255, 255, 0.82);
+    --media-title: #122039;
+    --media-body: #5b6b88;
+    --media-muted: #7a89a7;
+    --media-accent: #155fbe;
+    --media-accent-soft: rgba(21, 95, 190, 0.09);
+    --media-accent-border: rgba(21, 95, 190, 0.2);
+    --media-hero-bg:
+      radial-gradient(circle at top left, rgba(110, 188, 255, 0.16), transparent 24%),
+      radial-gradient(circle at 80% 20%, rgba(255, 187, 92, 0.2), transparent 28%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 246, 255, 0.92));
+    --media-summary-bg: rgba(17, 29, 49, 0.04);
+  }
+
   html,
   body,
   #root {
@@ -173,6 +207,37 @@
 }
 
 @layer utilities {
+  .media-panel {
+    background: var(--media-panel-bg);
+    border: 1px solid var(--media-panel-border);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+  }
+
+  .media-hero {
+    background: var(--media-hero-bg);
+    border: 1px solid var(--media-panel-border);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+  }
+
+  .media-summary-panel {
+    background: var(--media-summary-bg);
+    border: 1px solid var(--media-panel-border);
+    backdrop-filter: blur(16px);
+  }
+
+  .media-card {
+    backdrop-filter: blur(18px);
+  }
+
+  .media-orb {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), transparent 18%),
+      radial-gradient(circle at 70% 70%, rgba(255, 187, 92, 0.4), transparent 24%),
+      linear-gradient(135deg, rgba(110, 188, 255, 0.3), rgba(78, 97, 255, 0.12));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 16px 36px rgba(26, 62, 124, 0.18);
+  }
+
   .shuffle-text--hidden {
     visibility: hidden;
   }
